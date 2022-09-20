@@ -43,13 +43,13 @@ export class MongoDB extends Repository{
     }
 
     async addOrder(order){
-        const order = new OrderModel({
+        const orderModel = new OrderModel({
             productsList: order.productsList,
             totalPrice: order.totalPrice,
             boolPaid: order.boolPaid
         })
         
-        order.save().then(order => {
+        orderModel.save().then(order => {
             console.log(`Ordem criada: ${order._id}`)
             return order._id
         })
@@ -58,12 +58,10 @@ export class MongoDB extends Repository{
     async getProductsForResume(productIdsList){
         const ret = []
 
-        productIdsList.forEach((productId, index) => {
-            for await (const doc of ProductModel.findById(productId)){
-                ret.push({id: doc._id.toString(), productName: doc.productName, imgUrl: doc.imgUrl,
-                    unitPrice: doc.unitPrice, type: doc.type})
-            }
-        })
+        for await (const doc of ProductModel.find({'_id': { $in: productIdsList}})){
+            ret.push({id: doc._id.toString(), productName: doc.productName, imgUrl: doc.imgUrl,
+                unitPrice: doc.unitPrice, type: doc.type})
+        }
         return ret
     }
 }
