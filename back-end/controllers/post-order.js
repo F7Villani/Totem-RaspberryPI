@@ -5,7 +5,7 @@ export class CPostOrder{
         this._UCAddOrder = UCAddOrder
     }
 
-    async postInterest(body){
+    async postOrder(body){
         /*
             Estrutura do body:
             {

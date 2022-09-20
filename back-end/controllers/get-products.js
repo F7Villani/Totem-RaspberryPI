@@ -3,7 +3,7 @@ export class CGetProducts{
         this._UCGetProducts= UCGetProducts
     }
 
-    async postHelpOffer(body){
+    async getProducts(body){
         /*
             Estrutura do body:
             {

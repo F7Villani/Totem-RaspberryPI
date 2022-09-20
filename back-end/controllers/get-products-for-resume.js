@@ -3,7 +3,7 @@ export class CGetProductsForResume{
         this._UCGetProductsForResume = UCGetProductsForResume
     }
 
-    async getInterest(body){
+    async getProductsForResume(body){
         /*
             Estrutura do body:
             {
