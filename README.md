@@ -9,3 +9,11 @@ Um totem de fast food que permite o usuário montar seu pedido e pagá-lo. Ao re
 **Realizadores:**
 - Felipe Freitas Villani &ensp;&ensp;&ensp;&nbsp; 19.01370-0
 - Renan Scheidt Reschke  &ensp;19.02009-0
+
+**.env necessário para o back-end:**
+```env
+MONGODB_USER=""
+MONGODB_PASSWORD=""
+MONGODB_CLUSTER=""
+MONGODB_DATABASE=""
+```
