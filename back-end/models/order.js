@@ -1,4 +1,4 @@
-export class Pedido{
+export class Order{
     constructor(id, productsList, totalPrice, boolPaid){
         this._id = id
         this._productsList = productsList
