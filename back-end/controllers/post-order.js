@@ -9,7 +9,7 @@ export class CPostOrder{
         /*
             Estrutura do body:
             {
-                "productIdsList" : [XXXX, XXXX, XXXX, XXX],
+                "productIdsList" : {XXXX: YY, XXXX: ZZ, XXXX: AA, XXX: C},
                 "totalPrice" : YY.YY,
                 "boolPaid" : true/false
             }

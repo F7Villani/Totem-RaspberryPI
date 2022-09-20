@@ -21,7 +21,7 @@ const ProductModel = mongoose.model('product', mongoose.Schema({
 }))
 
 const OrderModel = mongoose.model('order', mongoose.Schema({
-    productsList: {type: [String], required:true},
+    productsList: {type: Object, required:true},
     totalPrice: {type: Number, required:true},
     boolPaid: {type: Boolean, required:true}
 }))
