@@ -12,8 +12,8 @@ export class Repository {
         }
     }
 
-    async addPedido(pedido){
-        throw new Error("Método não implementado (addPedido())")
+    async addOrder(order){
+        throw new Error("Método não implementado (addOrder())")
     }
 
     async getProductsForResume(productIdsList){
