@@ -3,7 +3,6 @@ import cors from 'cors'
 import { UCAddOrder } from './usecases/add-order.js'
 import { UCGetProductsForResume } from './usecases/get-products-for-resume.js'
 import { UCGetProducts } from './usecases/get-products.js'
-import { UCConsultHelpOffer } from './usecases/consult-help-offers.js'
 import { MongoDB } from './repository/mongodb.js'
 import { CGetProducts } from './controllers/get-products.js'
 import { CGetProductsForResume } from './controllers/get-products-for-resume.js'
@@ -24,7 +23,7 @@ const uCGetProductsForResume = new UCGetProductsForResume(repo)
 const cGetProductsForResume = new CGetProductsForResume(uCGetProductsForResume)
 
 const uCGetProducts = new UCGetProducts(repo)
-const cGetProducts = new CPostHelpOffer(uCGetProducts)
+const cGetProducts = new CGetProducts(uCGetProducts)
 
 app.post('/order', async (req, res) => {
     res.sendStatus(201).send(await cPostOrder.postOrder(req.body))
