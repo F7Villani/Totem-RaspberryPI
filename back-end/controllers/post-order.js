@@ -9,7 +9,7 @@ export class CPostOrder{
         /*
             Estrutura do body:
             {
-                "productIdsList" : {XXXX: YY, XXXX: ZZ, XXXX: AA, XXX: C},
+                "productIdsList" : {"XXX": YY, "XXX": ZZ, "XXX": AA, "XXX": C}, YY/ZZ/AA/C representam quantidades (int)
                 "totalPrice" : YY.YY,
                 "boolPaid" : true/false
             }

@@ -7,7 +7,7 @@ export class CGetProductsForResume{
         /*
             Estrutura do body:
             {
-                "productIdsList" : [XXX, XXXX, XXXX, XX]
+                "productIdsList" : ["XXX", "XXX", "XXX", "XXX"]
             }
         */
         return await this._UCGetProductsForResume.getProductsForResume(body.productIdsList)
