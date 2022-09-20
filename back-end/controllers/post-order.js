@@ -1,8 +1,6 @@
 import { Order } from "../models/order.js"
-import { UCAddOrder } from "../usecases/add-order.js"
-import { DateTime } from 'Luxon'
 
-export class CPostInterest{
+export class CPostOrder{
     constructor(UCAddOrder){
         this._UCAddOrder = UCAddOrder
     }
