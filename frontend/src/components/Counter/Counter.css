@@ -1,0 +1,13 @@
+.flexbox-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 9em;
+}
+
+.label{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 2em;
+    margin: auto;
+}
+
