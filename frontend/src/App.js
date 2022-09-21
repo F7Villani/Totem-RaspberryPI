@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { CategoryButton } from './components/CategoryButton';
-import { Counter } from './components/Counter';
+import { Counter } from './components/Counter/Counter';
+import { CleanOrderButton} from './components/CleanOrderButton/CleanOrderButton'
 
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
         <div>            
             <CategoryButton imageName='Vetor_Combo.png' category='Combos'/>
             <Counter/>
+            <CleanOrderButton amountItems='5'/>
         </div>
     )
 }
