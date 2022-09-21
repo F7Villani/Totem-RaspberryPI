@@ -14,7 +14,7 @@ export class CategoryButton extends Component {
 
     render() {
         return (
-        <div> 
+        <React.Fragment> 
             <Button 
                 className='p-button-raised p-button-secondary'
                 onClick={ () => {
@@ -24,7 +24,7 @@ export class CategoryButton extends Component {
                     <h1>{this.props.category}</h1>
                 </div>
             </Button>       
-        </div>
+        </React.Fragment>
         );
     }
 }
