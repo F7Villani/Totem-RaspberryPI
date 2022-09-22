@@ -2,7 +2,8 @@ import React from 'react';
 
 import { CategoryButton } from './components/CategoryButton';
 import { Counter } from './components/Counter/Counter';
-import { CleanOrderButton} from './components/CleanOrderButton/CleanOrderButton'
+import { CleanOrderButton} from './components/CleanOrderButton/CleanOrderButton';
+import PayButton from './components/PayButton/PayButton';
 
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
             <CategoryButton imageName='Vetor_Combo.png' category='Combos'/>
             <Counter/>
             <CleanOrderButton amountItems='5'/>
+            <PayButton/>
         </div>
     )
 }
