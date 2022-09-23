@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './CleanOrderButton.css';
 
 import { Button } from 'primereact/button';
 import { Badge } from 'primereact/badge';
@@ -17,13 +18,16 @@ export class CleanOrderButton extends Component {
         return (
             <React.Fragment>
                 <Button 
-                    className='p-button-rounded p-button-danger' 
+                    className='p-button-rounded p-button-danger clean-order-button' 
                     type="button" 
                     label="Limpar"
                     onClick={ () => {
-                        console.log('Botão Limpar clicado');
+                        console.log('Botão Limpar clicado - Limpar Pedido');
                     }}>
-                    <Badge value={this.state.amount}></Badge>
+                    <Badge 
+                        value={this.state.amount} 
+                        >
+                    </Badge>
                 </Button>
             </React.Fragment>
         )
