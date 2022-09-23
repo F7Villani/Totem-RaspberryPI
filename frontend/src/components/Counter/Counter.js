@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+import './Counter.css';
 
 import { Button } from 'primereact/button';
-
-import './Counter.css';
 
 export class Counter extends Component {
 
