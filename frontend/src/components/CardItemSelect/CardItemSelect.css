@@ -1,0 +1,14 @@
+.flexbox-container-card-item-select {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    width: auto;
+}
+
+.card-item-select{
+    height: 5em;
+}
+
+.image-item{
+    width: 8em;
+}
