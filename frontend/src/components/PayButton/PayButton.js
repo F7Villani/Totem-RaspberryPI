@@ -9,7 +9,6 @@ export class PayButton extends Component {
         super(props);
     }
 
-
     render() {
         return (
         <React.Fragment>
@@ -17,6 +16,7 @@ export class PayButton extends Component {
                 label="Pagar" 
                 className="p-button-rounded p-button-success pay-button" 
                 onClick={ () => {
+                    this.props.redirectFunction()
                     console.log("Botão pagar clicado - Vai pra tela de revisão")
                 }}/>
         </React.Fragment>
