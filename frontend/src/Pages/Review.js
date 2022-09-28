@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 export default function Review(){
     return(
         <div>
-            <p>Category</p>
+            <p>Review</p>
         </div>
     )
 }

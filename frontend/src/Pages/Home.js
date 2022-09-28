@@ -7,7 +7,7 @@ export default function Home(){
     const navigate = useNavigate()
 
     const navigateToItemCategory = () => {
-        navigate('/select-category')
+        navigate('/category')
     };
 
     return (
