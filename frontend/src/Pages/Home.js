@@ -1,19 +1,28 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+export default function Home(){
 
-const navigateToItemCategory = () => {
-    console.log('navigateToItemCategory');
-};
+    const navigate = useNavigate()
 
-const Home = () => {
+    const navigateToItemCategory = () => {
+        navigate('/select-category')
+    };
+
     return (
-        <div className='d-flex justify-content-center align-items-center' 
-            style={{backgroundColor: 'blue', height: '800px', width: '480px'}}
+        <div className='d-flex raspberry-screen-size justify-content-center align-items-center'
+            style={/*Mudar cor de fundo */
+                {
+                    backgroundColor: 'blue', 
+                    width: '480px', 
+                    height: '800px'
+                }
+            }
             onClick={navigateToItemCategory}>
-            <h1>Toque para iniciar</h1>
+            <h1 style={{
+                color: 'white'
+            }}>Toque para iniciar</h1>
         </div>
     )
-};
-
-export default Home
+}

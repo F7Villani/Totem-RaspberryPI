@@ -4,13 +4,11 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 import Home from './Pages/Home'
 import SelectCategory from './Pages/SelectCategory'
 
-const App = () => {
+export default function App(){
     return(
         <Routes>
-            <Route path="/category" element={<SelectCategory />} />
             <Route path="/" element={<Home />} />
+            <Route path="/select-category" element={<SelectCategory />} />
         </Routes>
     )
 }
-
-export default App
