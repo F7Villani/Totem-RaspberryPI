@@ -6,12 +6,7 @@ import { CleanOrderButton} from '../components/CleanOrderButton/CleanOrderButton
 import { PayButton } from '../components/PayButton/PayButton';
 import { CardItemSelect } from '../components/CardItemSelect/CardItemSelect';
 
-
-const navigateToItemCategory = () => {
-    console.log('navigateToItemCategory');
-};
-
-const SelectCategory = () => {
+export default function ComponentsExamples(){
     return (
         <div>     
             <h1>Titulo</h1>       
@@ -26,6 +21,4 @@ const SelectCategory = () => {
             <PayButton/>
         </div>
     )
-};
-
-export default SelectCategory
+}
