@@ -1,16 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {BrowserRouter as Router} from 'react-router-dom'
 
-const navigateToItemCategory = () => {
-    console.log('navigateToItemCategory');
-};
+import App from './App'
 
 ReactDOM.render(
-    <div className='d-flex justify-content-center align-items-center' 
-        style={{backgroundColor: 'blue', height: '800px', width: '480px'}}
-        onClick={navigateToItemCategory}>
-        <h1>Toque para iniciar</h1>
-    </div>,
+    <Router>
+        <App/>
+    </Router>,
     document.querySelector('#root')
 )
