@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {Routes, Route, useNavigate} from 'react-router-dom';
 
-import Home from './Pages/Home'
-import ComponentsExamples from './Pages/ComponentsExamples'
-import Review from './Pages/Review'
-import Payment from './Pages/Payment'
-import Products from './Pages/Products'
-import Category from './Pages/Category'
+import Home from './Pages/Home/Home'
+import ComponentsExamples from './Pages/Examples/ComponentsExamples'
+import Review from './Pages/Review/Review'
+import Payment from './Pages/Payment/Payment'
+import Products from './Pages/Products/Products'
+import Category from './Pages/Category/Category'
 
 export default function App(){
 

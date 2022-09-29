@@ -2,10 +2,10 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useNavigate } from 'react-router-dom'
 
-import CategoryButton from '../components/CategoryButton/CategoryButton';
-import CleanOrderButton from '../components/CleanOrderButton/CleanOrderButton';
-import PayButton from '../components/PayButton/PayButton';
-import CardItemSelect from '../components/CardItemSelect/CardItemSelect';
+import CategoryButton from '../../components/CategoryButton/CategoryButton';
+import CleanOrderButton from '../../components/CleanOrderButton/CleanOrderButton';
+import PayButton from '../../components/PayButton/PayButton';
+import CardItemSelect from '../../components/CardItemSelect/CardItemSelect';
 
 export default function ComponentsExamples(props){
     const navigate = useNavigate();

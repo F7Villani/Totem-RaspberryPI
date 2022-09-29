@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import CleanOrderButton from '../components/CleanOrderButton/CleanOrderButton';
-import PayButton from '../components/PayButton/PayButton';
-import CategoryButton from '../components/CategoryButton/CategoryButton'
+import CleanOrderButton from '../../components/CleanOrderButton/CleanOrderButton';
+import PayButton from '../../components/PayButton/PayButton';
+import CategoryButton from '../../components/CategoryButton/CategoryButton'
 
 export default function Category(props){
 
