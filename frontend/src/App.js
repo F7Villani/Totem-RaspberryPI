@@ -15,12 +15,6 @@ export default function App(){
 
     let localCart = localStorage.getItem("cart")
 
-    useEffect(() => {
-        localCart = JSON.parse(localCart)
-
-        if (localCart) setCart(localCart)
-    }, [])
-
     const addItem = (item) => {
         //create a copy of our cart state, avoid overwritting existing state
         let cartCopy = [...cart];
