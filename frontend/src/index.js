@@ -6,7 +6,7 @@ import App from './App'
 
 ReactDOM.render(
     <div className='d-flex' 
-        style={/*Mudar cor de fundo */
+        style={
         {
             width: '480px', 
             height: '800px'
