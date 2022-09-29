@@ -6,6 +6,8 @@ import CleanOrderButton from '../../components/CleanOrderButton/CleanOrderButton
 import PayButton from '../../components/PayButton/PayButton';
 import CategoryButton from '../../components/CategoryButton/CategoryButton'
 
+import './Category.css'
+
 export default function Category(props){
 
     const navigate = useNavigate()
