@@ -16,17 +16,15 @@ export class CategoryButton extends Component {
     render() {
         return (
         <React.Fragment> 
-            <Button style={{height: '35vh'}}
-                className='p-button-raised p-button-secondary d-flex justify-content-center align-items-center'
+            <Button className='p-button-raised p-button-secondary category-button'
                 onClick={ () => {
                     this.props.onClick(this.props.category);
                     console.log(`TODO: Vai pra pagina de escolher ${this.props.category}`)}}>
-                <div className='d-flex justify-content-center align-items-center row w-100'
+                <div className='category-button-content'
                     style={{height: '25vh'}}>
-                    <img className='d-flex justify-content-center align-items-center row'
-                        src={require('../../assets/images/' + this.props.imageName)}
-                        style={{height: '20vh', width: '20vh'}}></img>
-                    <h2 className='d-flex justify-content-center align-items-center row w-100'
+                    <img className='category-image'
+                        src={require('../../assets/images/' + this.props.imageName)}/>
+                    <h2 className='category-name'
                         style={{height: '5vh'}}>{this.props.category}</h2>
                 </div>
             </Button>       
