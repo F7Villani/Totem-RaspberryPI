@@ -17,15 +17,14 @@ export class CategoryButton extends Component {
         return (
         <React.Fragment> 
             <Button className='p-button-raised p-button-secondary category-button'
-                onClick={ () => {
-                    this.props.onClick(this.props.category);
-                    console.log(`TODO: Vai pra pagina de escolher ${this.props.category}`)}}>
-                <div className='category-button-content'
-                    style={{height: '25vh'}}>
+                    onClick={() => {
+                        this.props.redirect(this.props.category)
+                        console.log('Redirecionando para categoria')
+                        }}>
+                <div className='category-button-content'>
                     <img className='category-image'
                         src={require('../../assets/images/' + this.props.imageName)}/>
-                    <h2 className='category-name'
-                        style={{height: '5vh'}}>{this.props.category}</h2>
+                    <h2 className='category-name'>{this.props.category}</h2>
                 </div>
             </Button>       
         </React.Fragment>

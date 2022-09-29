@@ -16,6 +16,10 @@ export default function Category(props){
         navigate('/review')
     }
 
+    const navigateToProducts = (category) => {
+        navigate('/products', {state:{category}})
+    }
+
 
 
     return(
@@ -28,16 +32,12 @@ export default function Category(props){
                     <div className='d-flex w-100 row'>
                         <CategoryButton imageName='Vetor_Combo.png' 
                                         category='Combos' 
-                                        onClick={() =>{
-                                            
-                                        }}/>
+                                        redirect={navigateToProducts}/>
                     </div>
                     <div className='d-flex row w-100'>
                         <CategoryButton imageName='Vetor_Lanche.png' 
                                         category='Lanches' 
-                                        onClick={() =>{
-                                            
-                                        }}/>
+                                        redirect={navigateToProducts}/>
                     </div>
                 </div>
                 {/* Coluna 2 de categorias */}
@@ -45,16 +45,12 @@ export default function Category(props){
                     <div className='d-flex w-100 row'>
                         <CategoryButton imageName='Vetor_Bebida.png' 
                                         category='Bebidas' 
-                                        onClick={() =>{
-                                            
-                                        }}/>
+                                        redirect={navigateToProducts}/>
                     </div>
                     <div className='d-flex row w-100'>
                         <CategoryButton imageName='Vetor_Sorvete.png' 
                                         category='Sobremesas' 
-                                        onClick={() =>{
-                                            
-                                        }}/>
+                                        redirect={navigateToProducts}/>
                     </div>
                 </div>     
             </div>
