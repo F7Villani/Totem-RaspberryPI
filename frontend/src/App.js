@@ -87,10 +87,10 @@ export default function App(){
     }
 
     const emptyCart = () => {
-        emptyCart = []
+        let emptyCart = []
         setCart(emptyCart)
         let cartString = JSON.stringify(emptyCart)
-        localStorage.setItem('cart', emptyCart)
+        localStorage.setItem('cart', cartString)
 
     }
     
@@ -116,7 +116,7 @@ export default function App(){
             <Route path="/products" element={<Products  cart={localCart}
                                                         addItemToCart={addItem}
                                                         emptyCart={emptyCart} />} />
-                                                        
+
             <Route path="/category" element={<Category  cart={localCart}
                                                         emptyCart={emptyCart}/>} />
         </Routes>

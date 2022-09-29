@@ -6,6 +6,8 @@ export default function Category(props){
     return(
         <div>
             <p>Category</p>
+            <br/>
+            <p>{props.cart}</p>
         </div>
     )
 }
