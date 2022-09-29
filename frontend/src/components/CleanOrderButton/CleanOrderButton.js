@@ -11,10 +11,21 @@ export class CleanOrderButton extends Component {
     }
 
     state = {
-        amount: this.props.amountItems
+        cart: null
+    }
+
+    componentDidMount(){
+        let localCart = localStorage.getItem("cart")
+        this.setState({cart: JSON.parse(localCart)})
+    }
+
+    componentDidUpdate(){
+        
     }
 
     render() {
+        
+
         return (
             <React.Fragment>
                 <Button 
@@ -22,10 +33,14 @@ export class CleanOrderButton extends Component {
                     type="button" 
                     label="Limpar"
                     onClick={ () => {
-                        console.log('Botão Limpar clicado - Limpar Pedido');
+                        this.props.emptyCart()
+                        console.log('Botão Limpar clicado - Limpar Pedido')
+                        let localCart = localStorage.getItem("cart")
+                        this.setState({cart: JSON.parse(localCart)})
+                        console.log(localCart)
                     }}>
                     <Badge 
-                        value={this.state.amount} 
+                        value={this.state.cart?.length} 
                         >
                     </Badge>
                 </Button>

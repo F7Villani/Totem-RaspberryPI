@@ -117,8 +117,7 @@ export default function App(){
                                                         addItemToCart={addItem}
                                                         emptyCart={emptyCart} />} />
 
-            <Route path="/category" element={<Category  cart={localCart}
-                                                        emptyCart={emptyCart}/>} />
+            <Route path="/category" element={<Category  emptyCart={emptyCart}/>} />
         </Routes>
     )
 }
