@@ -87,11 +87,8 @@ export default function App(){
     }
 
     const emptyCart = () => {
-        let emptyCart = []
-        setCart(emptyCart)
-        let cartString = JSON.stringify(emptyCart)
-        localStorage.setItem('cart', cartString)
-
+        setCart([])
+        localStorage.removeItem('cart')
     }
     
     return(
