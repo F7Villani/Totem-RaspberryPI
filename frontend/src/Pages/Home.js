@@ -15,14 +15,15 @@ export default function Home(props){
     }, [])
 
     return (
-        <div className='d-flex justify-content-center align-items-center w-100'
+        <div className='d-flex justify-content-center align-items-center w-100 h-100'
             style={/*Mudar cor de fundo */
                 {
                     backgroundColor: 'blue'
                 }
             }
             onClick={navigateToItemCategory}>
-            <h1 style={{
+            <h1 className='d-flex justify-content-center align-items-center h-100'
+                style={{
                 color: 'white'
             }}>Toque para iniciar</h1>
         </div>
