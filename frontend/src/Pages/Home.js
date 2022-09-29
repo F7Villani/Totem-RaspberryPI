@@ -11,12 +11,10 @@ export default function Home(){
     };
 
     return (
-        <div className='d-flex raspberry-screen-size justify-content-center align-items-center'
+        <div className='d-flex justify-content-center align-items-center w-100'
             style={/*Mudar cor de fundo */
                 {
-                    backgroundColor: 'blue', 
-                    width: '480px', 
-                    height: '800px'
+                    backgroundColor: 'blue'
                 }
             }
             onClick={navigateToItemCategory}>
