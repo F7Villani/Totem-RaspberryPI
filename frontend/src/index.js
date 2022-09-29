@@ -6,10 +6,8 @@ import './index.css'
 import App from './App'
 
 ReactDOM.render(
-    <div className='d-flex w-100 h-100'>
-        <Router>
-            <App />
-        </Router>
-    </div>,
+    <Router>
+        <App />
+    </Router>,
     document.querySelector('#root')
 )

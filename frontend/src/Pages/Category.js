@@ -14,16 +14,15 @@ export default function Category(props){
         navigate('/review')
     }
 
-    
+
 
     return(
-        <div className='d-flex w-100 h-100 row'>
+        <div className='d-flex row w-100'>
             {/* Setor das categorias */}
             <div className='d-flex row w-100'
-                style={{height: '80vh', marginTop:'5vh'}}>
-                <div className='d-flex col-1'/>
+                style={{height: '82vh', margin: '1px'}}>
                 {/* Coluna 1 de categorias */}
-                <div className='d-flex col-5 justify-content-between align-items-center flex-column'>
+                <div className='d-flex col-6 justify-content-between align-items-center flex-column'>
                     <div className='d-flex w-100 row'>
                         <CategoryButton imageName='Vetor_Combo.png' 
                                         category='Combos' 
@@ -40,7 +39,7 @@ export default function Category(props){
                     </div>
                 </div>
                 {/* Coluna 2 de categorias */}
-                <div className='d-flex col-5 justify-content-between align-items-center flex-column'>
+                <div className='d-flex col-6 justify-content-between align-items-center flex-column'>
                     <div className='d-flex w-100 row'>
                         <CategoryButton imageName='Vetor_Bebida.png' 
                                         category='Bebidas' 
@@ -55,17 +54,18 @@ export default function Category(props){
                                             
                                         }}/>
                     </div>
-                </div>
-                <div className='d-flex col-1'/>      
+                </div>     
             </div>
             {/* Setor dos botões limpar Carrinho e Pagar */}
-            <div className='d-flex row'
-                style={{height: '14vh', marginBottom:'1vh'}}>
+            <div className='d-flex row w-100'
+                style={{height: '14vh', margin:'1px'}}>
                 <div className='d-flex justify-content-between align-items-center'>
-                    <div className='d-flex col-1'/>
-                    <CleanOrderButton emptyCart={props.emptyCart}/>
-                    <PayButton redirectFunction={navigateToReview}/>
-                    <div className='d-flex col-1'/>
+                    <div className='d-flex col-6'>
+                        <CleanOrderButton emptyCart={props.emptyCart}/>
+                    </div>
+                    <div className='d-flex col-6'>
+                        <PayButton redirectFunction={navigateToReview}/>
+                    </div>
                 </div>
             </div>
         </div>
