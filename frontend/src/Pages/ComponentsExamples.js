@@ -7,7 +7,7 @@ import CleanOrderButton from '../components/CleanOrderButton/CleanOrderButton';
 import PayButton from '../components/PayButton/PayButton';
 import CardItemSelect from '../components/CardItemSelect/CardItemSelect';
 
-export default function ComponentsExamples(){
+export default function ComponentsExamples(props){
     const navigate = useNavigate();
     const navigateToReview = () => {
         navigate('/review')
