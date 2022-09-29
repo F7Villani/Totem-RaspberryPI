@@ -6,6 +6,8 @@ export default function Review(props){
 
     useEffect(() => {
         //run after component mount
+        //add automaticamente ao entrar na pagina 2 quantidades de um item pra teste do carrinho
+        //REMOVER
         props.addItemToCart({'name': 'teste', 'id': 12, 'quantity': 2})
     },[])
 
@@ -14,7 +16,7 @@ export default function Review(props){
             <p>Review</p>
             <br/>
             <p>
-                {props.cart}
+                Carrinho: {props.cart}
             </p>
         </div>
     )
