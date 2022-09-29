@@ -88,7 +88,7 @@ export default function App(){
 
     const emptyCart = () => {
         setCart([])
-        localStorage.removeItem('cart')
+        localStorage.setItem('cart', '[]')
     }
     
     return(
