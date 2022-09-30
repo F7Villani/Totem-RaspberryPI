@@ -18,6 +18,18 @@
     font-size: 40px;
 } 
 
+.price-text{
+    width: 100%;
+    margin: 30px;
+    margin-top: 50px;
+    display: flex;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    justify-content: center;
+    font-size: 30px;
+}
+
 .obs-text{
     width: 100%;
     margin: 30px;
