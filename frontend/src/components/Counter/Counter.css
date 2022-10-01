@@ -9,6 +9,14 @@
 .label{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 2em;
-    margin: auto;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.button-counter{
+    height: 2em !important;
+    width: 2em !important;
 }
 

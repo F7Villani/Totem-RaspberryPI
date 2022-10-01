@@ -32,4 +32,4 @@ export class CategoryButton extends Component {
     }
 }
 
-export default CategoryButton
+export default CategoryButton;

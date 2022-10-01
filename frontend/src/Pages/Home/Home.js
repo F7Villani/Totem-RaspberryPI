@@ -1,10 +1,10 @@
 import {React, useEffect} from 'react';
-import { useNavigate } from 'react-router-dom'
-import './Home.css'
+import { useNavigate } from 'react-router-dom';
+import './Home.css';
 
 export default function Home(props){
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const navigateToItemCategory = () => {
         navigate('/category')
@@ -19,5 +19,5 @@ export default function Home(props){
             onClick={navigateToItemCategory}>
             <h1 className='home-text'>Toque para iniciar</h1>
         </div>
-    )
+    );
 }

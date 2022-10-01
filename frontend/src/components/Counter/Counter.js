@@ -10,7 +10,7 @@ export class Counter extends Component {
     }
     
     state = {
-        amount: 0
+        amount: parseInt(this.props.amount) ?? 0
     }
 
     render() {
@@ -19,7 +19,7 @@ export class Counter extends Component {
                 <div className="flexbox-container">
                     <Button 
                         icon="pi pi-minus" 
-                        className="p-button-rounded p-button-secondary" 
+                        className="button-counter p-button-rounded p-button-secondary" 
                         aria-label="Bookmark" 
                         onClick={
                             () => {
@@ -30,7 +30,7 @@ export class Counter extends Component {
                     
                     <Button 
                         icon="pi pi-plus" 
-                        className="p-button-rounded p-button-secondary" 
+                        className="button-counter p-button-rounded p-button-secondary" 
                         aria-label="Bookmark" 
                         onClick={
                             () => {

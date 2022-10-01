@@ -9,14 +9,18 @@ export class CardItemSelect extends Component {
         super(props);
     }
 
+    state = {
+        amount: parseInt(this.props.amount) || 0
+    }
+
     render() {
         return (
             <React.Fragment>
                 <div className="flexbox-container-card-item-select">
                     <img className='image-item' src={require('../../assets/images/' + this.props.imageName)}></img>
-                    <p className='label label-default'>{this.props.itemName}</p>
-                    <p className='label label-default'>{'R$' + this.props.price}</p>
-                    <Counter/>
+                    <p className='label label-col'>{this.props.itemName}</p>
+                    <p className='label label-col'>{'R$' + this.props.price}</p>
+                    <Counter amount={this.state.amount}/>
                 </div>
             </React.Fragment>
         )

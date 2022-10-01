@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    width: auto;
+    font-size: 0.7em !important;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .card-item-select{
@@ -10,5 +12,5 @@
 }
 
 .image-item{
-    width: 8em;
+    width: 5em;
 }
