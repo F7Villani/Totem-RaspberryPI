@@ -20,25 +20,9 @@ export default function Payment(props){
         navigate('/')
     }
 
-    const getOrderBodyFromCart = () => {
-        let cart = JSON.parse(props.cart)
-        let orderBody = {"productIdsList" : {},
-                         "totalPrice" : 0,
-                         "boolPaid" : true}
-        
-        cart.forEach((item) => {
-            orderBody.totalPrice += item.price * item.quantity
-            orderBody.productIdsList[item.id] = item.quantity
-        })
+    
 
-        console.log(orderBody)
-
-        return orderBody
-    }
-
-    const sendOrderToMongo = () => {
-        axios.post('http://localhost:8080/order', getOrderBodyFromCart())
-    }
+    
     return(
         <div className='payment-background row' onClick={() => {
                                                                     sendOrderToMongo()
