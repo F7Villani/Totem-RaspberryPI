@@ -30,11 +30,11 @@ export default function Products(props){
 
     return(
         <div>
-            <div className="top-bar d-flex row w-100">
-                <div className='d-flex col-3 justify-content-between flex-column'>
+            <div className="top-bar d-flex row w-100 align-items-center">
+                <div className='col-3  flex-column'>
                     <img className='product-category-image img-responsive' src={require(`../../assets/images/${imageName}`)}/>
                 </div>
-                <div className='d-flex col-5 align-self-center justify-content-between align-items-left flex-column'>
+                <div className='d-flex col-9'>
                     <h1 className='title-page'>{category}</h1>
                 </div>
             </div>
