@@ -24,8 +24,6 @@ export class CleanOrderButton extends Component {
     }
 
     render() {
-        
-
         return (
             <React.Fragment>
                 <Button 
