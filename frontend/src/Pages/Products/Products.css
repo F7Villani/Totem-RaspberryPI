@@ -1,0 +1,25 @@
+.top-bar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    height: 6rem;
+    padding: 0 2rem;
+    background-color: #e80707;
+    --bs-gutter-x: none;
+}
+
+.product-category-image{
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 10vh;
+    display: flex;
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+    filter: drop-shadow(1px 1px 1px #222);
+}
+
+.title-page{
+    color: aliceblue;
+    font-size: 2.5em;
+}

@@ -1,0 +1,16 @@
+.flexbox-container-card-item-select {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    font-size: 0.7em !important;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.card-item-select{
+    height: 5em;
+}
+
+.image-item{
+    width: 5em;
+}

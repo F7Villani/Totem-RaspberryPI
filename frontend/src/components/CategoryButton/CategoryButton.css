@@ -1,0 +1,29 @@
+.category-button{
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    display: flex;
+}
+
+.category-image{
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 20vh;
+    display: flex;
+}
+
+.category-name{
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 100%;
+    display: flex;
+}
+
+.category-button-content{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: grid;
+}
