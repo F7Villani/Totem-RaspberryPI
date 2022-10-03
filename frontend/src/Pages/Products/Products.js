@@ -44,6 +44,10 @@ export default function Products(props){
         backService.getProducts(category).then( res => setItems(res));
     },[]) 
 
+    const getQuantityItem = (item) => {
+        return 0;
+    }
+
     return(
         <div>
             <div className="top-bar d-flex row w-100 align-items-center">
@@ -59,6 +63,7 @@ export default function Products(props){
                     return (
                         <div key={key}>
                             <CardItemSelect 
+                                amount={getQuantityItem(item)}
                                 itemName={item.productName} 
                                 price={item.unitPrice} 
                                 imageName={imageName} 
@@ -71,15 +76,13 @@ export default function Products(props){
                     )
                 })             
             }           
-            <div className='d-flex row w-100 justify-content'
+            <div className='d-flex row w-100 justify-content align-items-center'
                 style={{height: '14vh', margin:'1px'}}>
-                <div className='d-flex align-items-center'>
-                    <div className='d-flex col-6'>
+                    <div className='d-flex col-12'>
                         <BackButton
                             redirectFunction={navigateToItemCategory}
                         />
                     </div>
-                </div>
             </div>    
         </div>
     )
