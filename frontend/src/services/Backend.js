@@ -1,9 +1,11 @@
+import axios from 'axios'
+
 export class BackendService {
 
     BASE_URL = 'http://localhost:8080';
 
-    getOrderBodyFromCart = (cart) => {
-        let cart = JSON.parse(cart)
+    getOrderBodyFromCart = (cartString) => {
+        let cart = JSON.parse(cartString)
         let orderBody = {"productIdsList" : {},
                          "totalPrice" : 0,
                          "boolPaid" : true};
@@ -19,7 +21,16 @@ export class BackendService {
     }
 
     sendOrderToMongo = (cart) => {
-        axios.post(`${this.BASE_URL}/order`, getOrderBodyFromCart(cart))
+        axios.post(`${this.BASE_URL}/order`, this.getOrderBodyFromCart(cart))
+    }
+
+    getProducts = () => {
+        let items;
+        axios.get(`${this.BASE_URL}/products`)
+        .then( (res) => {
+            items = res;
+            return items;
+        })
     }
 
     
