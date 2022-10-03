@@ -25,6 +25,12 @@ export default function Products(props){
         }
     }
     
+    const navigate = useNavigate();
+
+    const navigateToItemCategory = () => {
+        navigate('/category')
+    };
+
     let category = location.state.category;
     let imageName = GetImageByCategory(category);
 
@@ -44,11 +50,12 @@ export default function Products(props){
                 style={{height: '14vh', margin:'1px'}}>
                 <div className='d-flex align-items-center'>
                     <div className='d-flex col-6'>
-                        <BackButton/>
+                        <BackButton
+                            redirectFunction={navigateToItemCategory}
+                        />
                     </div>
                 </div>
-            </div>
-            
+            </div>    
         </div>
     )
 }
