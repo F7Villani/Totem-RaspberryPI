@@ -21,7 +21,8 @@ export class CardItemSelect extends Component {
         console.log('Adicionando item do carrinho');
     }
 
-    onMinusClick = async () => {       
+    onMinusClick = async () => {   
+        this.props.removeItemFromCart(await this.getItem().id);   
         console.log('Retirando item do carrinho');
     }
 
