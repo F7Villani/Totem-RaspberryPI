@@ -67,7 +67,7 @@ export default function App(){
     }
 
     const removeItem = (itemID) => {
-  
+        debugger
         //create cartCopy
         let cartCopy = [...cart]
         

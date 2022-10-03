@@ -10,16 +10,29 @@ export class CardItemSelect extends Component {
         super(props);
     }
 
+    state = {
+        item: null
+    }
+
     backService = new BackendService()
 
-    items = this.backService.get
-
-    onPlusClick = () => {
+    onPlusClick = async () => {
+        this.props.addItemToCart(await this.getItem());
         console.log('Adicionando item do carrinho');
     }
 
-    onMinusClick = () => {          
+    onMinusClick = async () => {       
         console.log('Retirando item do carrinho');
+    }
+
+    getItem = async () => {
+        let items = await this.backService.getProducts(this.props.category);
+        let item = items.find(item => item.id === this.props.itemId);
+        return item;
+    }
+
+    componentDidMount(){
+        this.setState(this.getItem());
     }
 
     render() {

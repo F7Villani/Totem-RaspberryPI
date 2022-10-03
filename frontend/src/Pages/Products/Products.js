@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CardItemSelect from '../../components/CardItemSelect/CardItemSelect';
@@ -8,6 +8,8 @@ import { BackendService } from '../../services/Backend';
 import './Products.css';
 
 export default function Products(props){
+
+    const [items, setItems] = useState([]);
 
     const location = useLocation();
     
@@ -36,8 +38,11 @@ export default function Products(props){
 
     let category = location.state.category;
     let imageName = GetImageByCategory(category);
-    let items = backService.getProducts();
-    
+
+    useEffect(() => {
+        //run after component mount
+        backService.getProducts(category).then( res => setItems(res));
+    },[]) 
 
     return(
         <div>
@@ -49,8 +54,23 @@ export default function Products(props){
                     <h1 className='title-page'>{category}</h1>
                 </div>
             </div>
-            {/*for pra cada item da categoria*/}
-            <CardItemSelect itemName='Nome do item' price='30,9' imageName={imageName} />
+            {
+                items.map((item,key) => {
+                    return (
+                        <div key={key}>
+                            <CardItemSelect 
+                                itemName={item.productName} 
+                                price={item.unitPrice} 
+                                imageName={imageName} 
+                                category={category}
+                                itemId={item.id}
+                                addItemToCart={props.addItemToCart}
+                                removeItemFromCart={props.removeItemFromCart}
+                            />
+                        </div> 
+                    )
+                })             
+            }           
             <div className='d-flex row w-100 justify-content'
                 style={{height: '14vh', margin:'1px'}}>
                 <div className='d-flex align-items-center'>
