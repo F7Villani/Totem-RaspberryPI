@@ -6,12 +6,15 @@ import { Button } from 'primereact/button';
 export class Counter extends Component {
 
     constructor(props){
-        super(props);
+        super(props);       
     }
     
     state = {
-        amount: parseInt(this.props.amount) ?? 0
+        amount: parseInt(this.props.amount) || 0
     }
+
+    onPlusClick = this.props.onPlusClick; 
+    onMinusClick = this.props.onMinusClick; 
 
     render() {
         return (
@@ -24,6 +27,7 @@ export class Counter extends Component {
                         onClick={
                             () => {
                                 this.setState({amount: this.state.amount-1 < 0? 0 : this.state.amount-1 })
+                                this.onMinusClick();
                             }         
                         }/>
                     <span className="label">{this.state.amount}</span>
@@ -34,7 +38,8 @@ export class Counter extends Component {
                         aria-label="Bookmark" 
                         onClick={
                             () => {
-                                this.setState({amount: this.state.amount+1})
+                                this.setState({amount: this.state.amount+1});
+                                this.onPlusClick();
                             }         
                         }/>
                 </div>
