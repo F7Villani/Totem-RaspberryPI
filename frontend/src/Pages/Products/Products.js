@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CardItemSelect from '../../components/CardItemSelect/CardItemSelect';
 import BackButton from '../../components/BackButton/BackButton';
+import { BackendService } from '../../services/Backend';
 
 import './Products.css';
 
@@ -10,6 +11,8 @@ export default function Products(props){
 
     const location = useLocation();
     
+    const backService = new BackendService();
+
     const GetImageByCategory = (category) => {
         switch (category) {
             case 'Combos':
@@ -33,6 +36,8 @@ export default function Products(props){
 
     let category = location.state.category;
     let imageName = GetImageByCategory(category);
+    let items = backService.getProducts();
+    
 
     return(
         <div>

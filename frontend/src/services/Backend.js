@@ -25,6 +25,7 @@ export class BackendService {
     }
 
     getProducts = () => {
+        debugger
         let items;
         axios.get(`${this.BASE_URL}/products`)
         .then( (res) => {
