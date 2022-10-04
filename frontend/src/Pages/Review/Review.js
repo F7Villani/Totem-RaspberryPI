@@ -23,19 +23,19 @@ export default function Review(props){
                 <h1 className='title-page'>Revisão do Pedido</h1>
             </div>
 
-            <div className="row w-100 header-items align-items-start">
-                <div className="col-6 "><h2>Item</h2></div>
-                <div className="col-2"><h2>Preço</h2></div>
-                <div className="col-2"><h2>Qtd</h2></div>
-                <div className="col-2"><h2>Total</h2></div>
+            <div className="row w-100 header-items align-items-starts">
+                <div className="col-5 header-col"><h2>Item</h2></div>
+                <div className="col-3 header-col"><h2>Preço</h2></div>
+                <div className="col-1 header-col"><h2>Qtd</h2></div>
+                <div className="col-3 header-col"><h2>Total</h2></div>
             </div>       
             {
                 JSON.parse(props.cart).map((item, key) => (
                     <div className="row w-100 header-items align-items-start">
-                        <div className="col-6 ">{item.productName}</div>
-                        <div className="col-2">{"R$ "+item.unitPrice}</div>
-                        <div className="col-2">{item.quantity}</div>
-                        <div className="col-2">{"R$ "+item.unitPrice*item.quantity}</div>
+                        <div className="col-5">{item.productName}</div>
+                        <div className="col-3">{"R$ "+item.unitPrice}</div>
+                        <div className="col-1">{item.quantity}</div>
+                        <div className="col-3">{"R$ "+ parseFloat(item.unitPrice*item.quantity).toFixed(2).replace('.', ',') }</div>
                     </div>
                 ))
             }
@@ -45,7 +45,7 @@ export default function Review(props){
                     <div className='d-flex col-6'>
                         <BackButton redirectFunction={navigateToItemCategory}/>
                     </div>
-                    <div className='d-flex col-6'>
+                    <div className='d-flex col-6 offset-md-1'>
                         <PayButton redirectFunction={navigateToPayment}/>
                     </div>
                 </div>

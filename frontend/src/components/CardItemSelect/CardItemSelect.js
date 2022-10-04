@@ -42,7 +42,7 @@ export class CardItemSelect extends Component {
                 <div className="flexbox-container-card-item-select">
                     <img className='image-item' src={require('../../assets/images/' + this.props.imageName)}></img>
                     <p className='label label-col'>{this.props.itemName}</p>
-                    <p className='label label-col'>{'R$' + this.props.price}</p>
+                    <p className='label label-col'>{'R$ ' + parseFloat(this.props.price).toFixed(2).replace('.', ',')}</p>
                     <Counter 
                         amount={this.props.amount}
                         onPlusClick={this.onPlusClick}
