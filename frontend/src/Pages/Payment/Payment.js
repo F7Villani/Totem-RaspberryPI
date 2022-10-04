@@ -15,7 +15,7 @@ export default function Payment(props){
                          "boolPaid" : true};
         
         cart.forEach((item) => {
-            orderBody.totalPrice += item.price * item.quantity;
+            orderBody.totalPrice += item.unitPrice * item.quantity;
             orderBody.productIdsList[item.id] = item.quantity
         });
 
@@ -43,7 +43,7 @@ export default function Payment(props){
             <h1 className='payment-header row'>Aponte o celular para o QR Code abaixo:</h1>
             <img className='row' src={require('../../assets/images/qr_1.png')}
                 style={{height: '300px', width: '300px'}}/>
-            <h3 className='price-text row'>Total: R${totalPrice}</h3>
+            <h3 className='price-text row'>Total: R$ {totalPrice}</h3>
             <p className='obs-text row'>Toque na tela quando o pagamento for concluído.</p>
         </div>
     )
