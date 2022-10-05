@@ -20,15 +20,16 @@ export default function App(){
         let cartCopy = [...cart];
         
         //assuming we have an ID field in our item
-        let {ID} = item;
+        let {id} = item;
         
         //look for item in cart array
-        let existingItem = cartCopy.find(cartItem => cartItem.ID == ID);
+        let existingItem = cartCopy.find(cartItem => cartItem.id === id);
         
         //if item already exists
         if (existingItem) {
-            existingItem.quantity += item.quantity //update item
+            existingItem.quantity++ //update item
         } else { //if item doesn't exist, simply add it
+            item.quantity = 1
             cartCopy.push(item)
         }
         
@@ -67,7 +68,7 @@ export default function App(){
     }
 
     const removeItem = (itemID) => {
-  
+        debugger
         //create cartCopy
         let cartCopy = [...cart]
         

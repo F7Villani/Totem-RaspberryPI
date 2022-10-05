@@ -19,9 +19,16 @@ export class CleanOrderButton extends Component {
         this.setState({cart: JSON.parse(localCart)})
     }
 
-    componentDidUpdate(){
-        
+    getTotalQuantity(cart){
+        let totalQuantity = 0;
+        if(cart?.length){
+            for (let i = 0; i < cart.length; i++) {
+                totalQuantity += cart[i].quantity
+            }
+        }
+        return totalQuantity;
     }
+
 
     render() {
         return (
@@ -38,7 +45,7 @@ export class CleanOrderButton extends Component {
                         console.log(localCart)
                     }}>
                     <Badge 
-                        value={this.state.cart?.length} 
+                        value={this.getTotalQuantity(this.state.cart)} 
                         >
                     </Badge>
                 </Button>

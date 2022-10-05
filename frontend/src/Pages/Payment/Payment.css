@@ -8,36 +8,23 @@
 
 .payment-header{
     width: 100%;
-    margin: 30px;
     margin-top: 50px;
-    display: flex;
-    text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
     text-transform: uppercase;
-    justify-content: center;
     font-size: 40px;
 } 
 
 .price-text{
-    width: 100%;
-    margin: 30px;
     margin-top: 50px;
-    display: flex;
-    text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
     text-transform: uppercase;
-    justify-content: center;
     font-size: 30px;
 }
 
 .obs-text{
     width: 100%;
-    margin: 30px;
-    margin-top: 50px;
-    display: flex;
-    text-align: center;
-    color: white;
+    margin-top: 5em;
+    color: rgb(0, 0, 0);
     text-transform: uppercase;
-    justify-content: center;
     font-size: 10px;
 }

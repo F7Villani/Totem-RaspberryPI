@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CardItemSelect from '../../components/CardItemSelect/CardItemSelect';
 import BackButton from '../../components/BackButton/BackButton';
+import { BackendService } from '../../services/Backend';
 
 import './Products.css';
 
 export default function Products(props){
 
+    const [items, setItems] = useState([]);
+
     const location = useLocation();
     
+    const backService = new BackendService();
+
     const GetImageByCategory = (category) => {
         switch (category) {
             case 'Combos':
@@ -34,6 +39,25 @@ export default function Products(props){
     let category = location.state.category;
     let imageName = GetImageByCategory(category);
 
+    useEffect(() => {
+        //run after component mount
+        backService.getProducts(category).then( res => setItems(res));
+    },[]) 
+
+    const getQuantityItem = (id) => {
+        let cart = JSON.parse(props.cart);
+        let quantityItem = 0;
+        if(cart.length > 0){
+            for (let i = 0; i < cart.length; i++) {
+                let existingItem = cart[i].id === id ? cart[i] : 0;  
+                if(existingItem){
+                    return existingItem.quantity;
+                } 
+            }
+        }
+        return quantityItem;
+    }
+
     return(
         <div>
             <div className="top-bar d-flex row w-100 align-items-center">
@@ -44,17 +68,31 @@ export default function Products(props){
                     <h1 className='title-page'>{category}</h1>
                 </div>
             </div>
-            {/*for pra cada item da categoria*/}
-            <CardItemSelect itemName='Nome do item' price='30,9' imageName={imageName} />
-            <div className='d-flex row w-100 justify-content'
+            {
+                items.map((item,key) => {
+                    return (
+                        <div key={key}>
+                            <CardItemSelect 
+                                amount={getQuantityItem(item.id)}
+                                itemName={item.productName} 
+                                price={item.unitPrice} 
+                                imageName={imageName} 
+                                category={category}
+                                itemId={item.id}
+                                addItemToCart={props.addItemToCart}
+                                removeItemFromCart={props.removeItemFromCart}
+                            />
+                        </div> 
+                    )
+                })             
+            }           
+            <div className='d-flex row w-100 justify-content align-items-center'
                 style={{height: '14vh', margin:'1px'}}>
-                <div className='d-flex align-items-center'>
-                    <div className='d-flex col-6'>
+                    <div className='d-flex col-12'>
                         <BackButton
                             redirectFunction={navigateToItemCategory}
                         />
                     </div>
-                </div>
             </div>    
         </div>
     )

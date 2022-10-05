@@ -15,7 +15,7 @@ export default function Payment(props){
                          "boolPaid" : true};
         
         cart.forEach((item) => {
-            orderBody.totalPrice += item.price * item.quantity;
+            orderBody.totalPrice += item.unitPrice * item.quantity;
             orderBody.productIdsList[item.id] = item.quantity
         });
 
@@ -39,12 +39,25 @@ export default function Payment(props){
     }
 
     return(
-        <div className='payment-background row' onClick={() => {backService.sendOrderToMongo(props.cart)}}>
-            <h1 className='payment-header row'>Aponte o celular para o QR Code abaixo:</h1>
-            <img className='row' src={require('../../assets/images/qr_1.png')}
-                style={{height: '300px', width: '300px'}}/>
-            <h3 className='price-text row'>Total: R${totalPrice}</h3>
-            <p className='obs-text row'>Toque na tela quando o pagamento for concluído.</p>
+        <div className='home-background'
+            onClick={() => {backService.sendOrderToMongo(props.cart)}}>
+                <div className="home-bar d-flex w-100 justify-content-center">               
+                    <h1 className='home-title text-center'>PAGAMENTO</h1>
+                </div>
+                <div className="container">
+                    <div className="row d-flex justify-content-center text-center">
+                        <div className="col-9 w-100 text-center">
+                            <h1 className='payment-header'>Aponte o celular para o QR Code abaixo:</h1>
+                            <br/>
+                            <img src={require('../../assets/images/qr_1.png')}
+                            style={{height: '300px', width: '300px'}}/>
+                        </div>
+                        <div className="col-1 w-100 text-center">
+                            <h1 className='price-text'>TOTAL: R$ {totalPrice}</h1>
+                            <p className='obs-text'>Toque na tela quando o pagamento for concluído.</p>
+                        </div>
+                    </div>    
+                </div> 
         </div>
     )
 }

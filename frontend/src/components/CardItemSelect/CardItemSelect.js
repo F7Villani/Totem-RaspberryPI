@@ -10,16 +10,31 @@ export class CardItemSelect extends Component {
         super(props);
     }
 
+    state = {
+        item: null,
+        amount: this.props.amount
+    }
+
     backService = new BackendService()
 
-    items = this.backService.get
-
-    onPlusClick = () => {
+    onPlusClick = async () => {
+        this.props.addItemToCart(await this.getItem());
         console.log('Adicionando item do carrinho');
     }
 
-    onMinusClick = () => {          
+    onMinusClick = async () => {   
+        this.props.removeItemFromCart(await this.getItem().id);   
         console.log('Retirando item do carrinho');
+    }
+
+    getItem = async () => {
+        let items = await this.backService.getProducts(this.props.category);
+        let item = items.find(item => item.id === this.props.itemId);
+        return item;
+    }
+
+    componentDidMount(){
+        this.setState(this.getItem());
     }
 
     render() {
@@ -28,9 +43,9 @@ export class CardItemSelect extends Component {
                 <div className="flexbox-container-card-item-select">
                     <img className='image-item' src={require('../../assets/images/' + this.props.imageName)}></img>
                     <p className='label label-col'>{this.props.itemName}</p>
-                    <p className='label label-col'>{'R$' + this.props.price}</p>
+                    <p className='label label-col'>{'R$ ' + parseFloat(this.props.price).toFixed(2).replace('.', ',')}</p>
                     <Counter 
-                        amount={this.props.amount}
+                        amount={this.state.amount}
                         onPlusClick={this.onPlusClick}
                         onMinusClick={this.onMinusClick}
                     />

@@ -4,16 +4,28 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    background-color: blue;
+    background-color:aliceblue;
 }
 
-.home-text{
-    width: 20%;
-    height: 100%;
-    justify-content: center;
+.home-image{
+    max-width: 50%;
+    height: auto;
+}
+
+.home-title{
+    font-size: auto;
+    color: aliceblue;
+}
+
+.home-bar{
     align-items: center;
-    display: flex;
-    text-align: center;
-    color: white;
-    text-transform: uppercase;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    height: 6rem;
+    padding: 0 2rem;
+    background-color: #e80707;
+    --bs-gutter-x: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
