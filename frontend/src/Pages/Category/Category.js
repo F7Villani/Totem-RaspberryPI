@@ -20,8 +20,6 @@ export default function Category(props){
         navigate('/products', {state:{category}})
     }
 
-
-
     return(
         <div className='d-flex row w-100'>
             {/* Setor das categorias */}

@@ -31,7 +31,7 @@ export default function Review(props){
             </div>       
             {
                 JSON.parse(props.cart).map((item, key) => (
-                    <div className="row w-100 header-items align-items-start">
+                    <div className="row w-100 header-items align-items-start" key={key}>
                         <div className="col-5">{item.productName}</div>
                         <div className="col-3">{"R$ "+item.unitPrice}</div>
                         <div className="col-1">{item.quantity}</div>
@@ -39,9 +39,9 @@ export default function Review(props){
                     </div>
                 ))
             }
-            <div className='d-flex row w-100'
+            <div className='d-flex row w-100 align-items-end'
                 style={{height: '14vh', margin:'1px'}}>
-                <div className='d-flex justify-content-between align-items-end'>
+                <div className='d-flex justify-content-between'>
                     <div className='d-flex col-6'>
                         <BackButton redirectFunction={navigateToItemCategory}/>
                     </div>

@@ -44,8 +44,18 @@ export default function Products(props){
         backService.getProducts(category).then( res => setItems(res));
     },[]) 
 
-    const getQuantityItem = (item) => {
-        return 0;
+    const getQuantityItem = (id) => {
+        let cart = JSON.parse(props.cart);
+        let quantityItem = 0;
+        if(cart.length > 0){
+            for (let i = 0; i < cart.length; i++) {
+                let existingItem = cart[i].id === id ? cart[i] : 0;  
+                if(existingItem){
+                    return existingItem.quantity;
+                } 
+            }
+        }
+        return quantityItem;
     }
 
     return(
@@ -63,7 +73,7 @@ export default function Products(props){
                     return (
                         <div key={key}>
                             <CardItemSelect 
-                                amount={getQuantityItem(item)}
+                                amount={getQuantityItem(item.id)}
                                 itemName={item.productName} 
                                 price={item.unitPrice} 
                                 imageName={imageName} 

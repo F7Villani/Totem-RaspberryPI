@@ -11,7 +11,8 @@ export class CardItemSelect extends Component {
     }
 
     state = {
-        item: null
+        item: null,
+        amount: this.props.amount
     }
 
     backService = new BackendService()
@@ -44,7 +45,7 @@ export class CardItemSelect extends Component {
                     <p className='label label-col'>{this.props.itemName}</p>
                     <p className='label label-col'>{'R$ ' + parseFloat(this.props.price).toFixed(2).replace('.', ',')}</p>
                     <Counter 
-                        amount={this.props.amount}
+                        amount={this.state.amount}
                         onPlusClick={this.onPlusClick}
                         onMinusClick={this.onMinusClick}
                     />
