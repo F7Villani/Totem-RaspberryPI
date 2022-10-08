@@ -30,7 +30,6 @@ app.post('/order', async (req, res) => {
 })
 
 app.get('/products', async (req, res) => {
-    console.log(req)
     res.send(await cGetProducts.getProducts(req.query))
 })
 
