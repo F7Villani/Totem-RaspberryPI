@@ -40,8 +40,7 @@ export class BackendService {
     getProducts = async (category) => {
         let items = [];
         category = this.mapCategoryFrontToBack(category);
-        let body = {type:category};
-        let res = await axios.post(`${this.BASE_URL}/products`, body);
+        let res = await axios.get(`${this.BASE_URL}/products?category=${category}`);
         items = res.data;
         return items;
     }
