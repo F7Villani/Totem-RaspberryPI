@@ -19,7 +19,7 @@ export default function Review(props){
 
     return(
         <div>
-            <div className="top-bar top-bar-review d-flex row w-100 ">               
+            <div className="home-bar d-flex w-100 justify-content-center">               
                 <h1 className='title-page'>Revisão do Pedido</h1>
             </div>
 
