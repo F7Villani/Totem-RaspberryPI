@@ -24,17 +24,17 @@ export default function Review(props){
             </div>
 
             <div className="row w-100 header-items align-items-starts">
-                <div className="col-5 header-col"><h2>Item</h2></div>
-                <div className="col-3 header-col"><h2>Preço</h2></div>
-                <div className="col-1 header-col"><h2>Qtd</h2></div>
-                <div className="col-3 header-col"><h2>Total</h2></div>
+                <div className="col-4"><h2>Item</h2></div>
+                <div className="col-3"><h2>Preço</h2></div>
+                <div className="col-2"><h2>Qtd</h2></div>
+                <div className="col-3"><h2>Total</h2></div>
             </div>       
             {
                 JSON.parse(props.cart).map((item, key) => (
                     <div className="row w-100 header-items align-items-start" key={key}>
-                        <div className="col-5">{item.productName}</div>
+                        <div className="col-4">{item.productName}</div>
                         <div className="col-3">{"R$ "+item.unitPrice}</div>
-                        <div className="col-1">{item.quantity}</div>
+                        <div className="col-2">{item.quantity}</div>
                         <div className="col-3">{"R$ "+ parseFloat(item.unitPrice*item.quantity).toFixed(2).replace('.', ',') }</div>
                     </div>
                 ))
