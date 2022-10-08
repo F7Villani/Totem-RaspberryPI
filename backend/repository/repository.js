@@ -20,7 +20,7 @@ export class Repository {
         throw new Error("Método não implementado (getProductsForResume())")
     }
 
-    async getProducts(productType){
+    async getProducts(productCategory){
         throw new Error("Método não implementado (getProducts())")
     }
 }

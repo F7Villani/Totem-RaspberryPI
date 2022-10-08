@@ -29,8 +29,9 @@ app.post('/order', async (req, res) => {
     res.sendStatus(201).send(await cPostOrder.postOrder(req.body))
 })
 
-app.post('/products', async (req, res) => {
-    res.send(await cGetProducts.getProducts(req.body))
+app.get('/products', async (req, res) => {
+    console.log(req)
+    res.send(await cGetProducts.getProducts(req.query))
 })
 
 app.get('/products-resume', async (req, res) => {

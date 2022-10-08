@@ -8,7 +8,7 @@ export class UCGetProducts{
         this._repository = repository
     }
 
-    async getProducts(productType){
-        return await this._repository.getProducts(productType)
+    async getProducts(productCategory){
+        return await this._repository.getProducts(productCategory)
     }
 }

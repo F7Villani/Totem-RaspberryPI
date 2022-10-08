@@ -33,9 +33,10 @@ export class MongoDB extends Repository{
         mongoose.connect(`mongodb+srv://${MONGODB_USER}:${MONGODB_PASSWORD}@${MONGODB_CLUSTER}.mongodb.net/${MONGODB_DATABASE}?retryWrites=true&w=majority`)
     }
 
-    async getProducts(productType){
+    async getProducts(productCategory){
         const ret = []
-        for await (const doc of ProductModel.find({type: productType})){
+        console.log(`CATEGORIA: ${productCategory}`)
+        for await (const doc of ProductModel.find({type: productCategory})){
             ret.push({id: doc._id.toString(), productName: doc.productName, imgUrl: doc.imgUrl,
                       unitPrice: doc.unitPrice, type: doc.type})
         }

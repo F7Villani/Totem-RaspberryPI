@@ -3,13 +3,13 @@ export class CGetProducts{
         this._UCGetProducts= UCGetProducts
     }
 
-    async getProducts(body){
+    async getProducts(query){
         /*
-            Estrutura do body:
+            query param necessario:
             {
-                "type" : "XXXXX"
+                "category" : "XXXXX"
             }
         */
-        return await this._UCGetProducts.getProducts(body.type)
+        return await this._UCGetProducts.getProducts(query.category)
     }
 }
