@@ -25,7 +25,7 @@ app.get('/products', async (req, res) => {
 })
 
 app.get('/products-resume', async (req, res) => {
-    res.send(await cGetProductsForResume.getProductsForResume(req.body))
+    res.send(await cGetProductsForResume.getProductsForResume(req.params))
 })
 
 app.listen(8080, () => {

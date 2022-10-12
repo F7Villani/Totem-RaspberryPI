@@ -3,13 +3,13 @@ export class CGetProductsForResume{
         this._UCGetProductsForResume = UCGetProductsForResume
     }
 
-    async getProductsForResume(body){
+    async getProductsForResume(params){
         /*
-            Estrutura do body:
+            Estrutura do params:
             {
                 "productIdsList" : ["XXX", "XXX", "XXX", "XXX"]
             }
         */
-        return await this._UCGetProductsForResume.getProductsForResume(body.productIdsList)
+        return await this._UCGetProductsForResume.getProductsForResume(params.productIdsList)
     }
 }
