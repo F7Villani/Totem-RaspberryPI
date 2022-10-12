@@ -29,7 +29,7 @@ MONGODB_DATABASE=""
     * Fornece uma rota para criação e consulta de pedidos no banco de dados
 
 #### Rotas
-##### Microsserviço de Produtos
+##### Acesso ao Microsserviço de Produtos
 **GET localhost:8080/products?category={nome_categoria}**
 Retorna uma lista de produtos da categoria {nome_categoria}
 Exemplo de retorno para localhost:8080/products?category=Combo:
@@ -76,7 +76,7 @@ Retorno esperado com o `params` passado acima:
 ]
 ```
 
-##### Microsserviço Pedidos
+##### Acesso ao Microsserviço Pedidos
 **POST localhost:8080/order**
 Cria um pedido no MongoDB
 Body que deve ser passado:
