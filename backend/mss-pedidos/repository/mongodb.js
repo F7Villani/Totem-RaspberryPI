@@ -14,7 +14,8 @@ const {
 const OrderModel = mongoose.model('order', mongoose.Schema({
     productsList: {type: Object, required:true},
     totalPrice: {type: Number, required:true},
-    boolPaid: {type: Boolean, required:true}
+    boolPaid: {type: Boolean, required:true},
+    boolDelivered: {type: Boolean, required:true}
 }))
 
 export class MongoDB extends Repository{
@@ -28,7 +29,8 @@ export class MongoDB extends Repository{
         const orderModel = new OrderModel({
             productsList: order.productsList,
             totalPrice: order.totalPrice,
-            boolPaid: order.boolPaid
+            boolPaid: order.boolPaid,
+            boolDelivered: order.boolDelivered
         })
         
         orderModel.save().then(order => {

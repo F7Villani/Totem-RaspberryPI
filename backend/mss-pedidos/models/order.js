@@ -1,9 +1,10 @@
 export class Order{
-    constructor(id, productsList, totalPrice, boolPaid){
+    constructor(id, productsList, totalPrice, boolPaid, boolDelivered){
         this._id = id
         this._productsList = productsList
         this._totalPrice = totalPrice
-        this._boolPaid= boolPaid
+        this._boolPaid = boolPaid
+        this._boolDelivered = boolDelivered
     }
 
     get id(){
@@ -22,6 +23,10 @@ export class Order{
         return this._boolPaid
     }
 
+    get boolDelivered(){
+        return this._boolDelivered
+    }
+
     set id(id){
         this._id = id
     }
@@ -36,5 +41,9 @@ export class Order{
 
     set boolPaid(boolPaid){
         this._boolPaid = boolPaid
+    }
+
+    set boolDelivered(boolDelivered){
+        this._boolDelivered = boolDelivered
     }
 }
