@@ -3,5 +3,5 @@ RUN mkdir mss-pedidos
 COPY . ./mss-pedidos
 WORKDIR /mss-pedidos/
 RUN npm install
-EXPOSE 8080
+EXPOSE 8082
 CMD ["npm", "start"]
