@@ -16,7 +16,7 @@ export class CPostOrder{
             }
         */
         const order = new Order(-1, body.productIdsList, 
-                                    body.totalPrice, body.boolPaid)
+                                    body.totalPrice, body.boolPaid, body.boolDelivered)
         return await this._UCAddOrder.addOrder(order)
     }
 }
