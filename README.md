@@ -104,6 +104,7 @@ Retorno: "Ordem {orderID} entregue"
 OBS: Antes de iniciar, é necessário criar o .env com a estrutura demonstrada anteriormente no README.
 Cada microsserviço possui seu Dockerfile na raiz do projeto. Para criar as imagens, partindo da pasta `backend`, basta seguir o script a seguir:
 ```
+docker build -t {nome-desejado-barramento} ./barramento
 docker build -t {nome-desejado-mss-pedidos} ./mss-pedidos
 docker build -t {nome-desejado-mss-produtos} ./mss-produtos
 ```
@@ -112,3 +113,4 @@ docker build -t {nome-desejado-mss-produtos} ./mss-produtos
 Com as imagens criadas, agora é possível subir os containeres com os comandos abaixo:
 `docker run -p 8081:8081 {nome-desejado-mss-produtos}`
 `docker run -p 8082:8082 {nome-desejado-mss-pedidos}`
+`docker run -p 8080:8080 {nome-desejado-barramento}`
