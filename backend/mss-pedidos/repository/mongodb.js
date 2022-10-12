@@ -38,4 +38,13 @@ export class MongoDB extends Repository{
             return order._id
         })
     }
+
+    async deliverOrder(orderId){
+        const order = await OrderModel.findById(orderId)
+        order.boolDelivered = true
+        order.save().then(order => {
+            //console.log(`Ordem entregue: ${order._id}`)
+            return `Ordem entregue: ${order._id}`
+        })
+    }
 }
