@@ -7,9 +7,9 @@ export class CGetProductsForResume{
         /*
             Estrutura do params:
             {
-                "productIdsList" : ["XXX", "XXX", "XXX", "XXX"]
+                productIdsList : ["XXX", "XXX", "XXX", "XXX"]
             }
         */
-        return await this._UCGetProductsForResume.getProductsForResume(params.productIdsList)
+        return await this._UCGetProductsForResume.getProductsForResume(JSON.parse(params.productIdsList))
     }
 }

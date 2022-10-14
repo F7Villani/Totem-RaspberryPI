@@ -27,6 +27,6 @@ app.put('/order', async (req, res) => {
     res.sendStatus(200).send(await cPutOrder.putOrder(req.body))
 })
 
-app.listen(8081, () => {
-    console.log('MSS Pedidos: Porta 8081')
+app.listen(8082, () => {
+    console.log('MSS Pedidos: Porta 8082')
 })

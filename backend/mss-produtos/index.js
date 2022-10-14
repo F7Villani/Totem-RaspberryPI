@@ -25,9 +25,9 @@ app.get('/products', async (req, res) => {
 })
 
 app.get('/products-resume', async (req, res) => {
-    res.send(await cGetProductsForResume.getProductsForResume(req.params))
+    res.send(await cGetProductsForResume.getProductsForResume(req.query))
 })
 
-app.listen(8080, () => {
-    console.log('MSS Produtos: Porta 8080')
+app.listen(8081, () => {
+    console.log('MSS Produtos: Porta 8081')
 })

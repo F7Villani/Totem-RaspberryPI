@@ -21,13 +21,15 @@ MONGODB_DATABASE=""
 ## Informações do backend
 #### Microsserviços
 
-* Produtos (porta 8080)
+* Barramento de eventos (porta 8080)
+    * Onde serão feitas as requisições 
+* Produtos (porta 8082)
     * Fornece rotas para buscar informações de produtos, como nome, preço e categoria
 * Pedidos (porta 8081)
     * Fornece uma rota para criação e consulta de pedidos no banco de dados
 
 #### Rotas
-##### Microsserviço de Produtos
+##### Acesso ao Microsserviço de Produtos
 **GET localhost:8080/products?category={nome_categoria}**
 Retorna uma lista de produtos da categoria {nome_categoria}
 Exemplo de retorno para localhost:8080/products?category=Combo:
@@ -74,8 +76,8 @@ Retorno esperado com o `params` passado acima:
 ]
 ```
 
-##### Microsserviço Pedidos
-**POST localhost:8081/order**
+##### Acesso ao Microsserviço Pedidos
+**POST localhost:8080/order**
 Cria um pedido no MongoDB
 Body que deve ser passado:
 ```json
@@ -88,7 +90,7 @@ Body que deve ser passado:
 ```
 Retorno: ID da ordem criada
 
-**PUT localhost:8081/order**
+**PUT localhost:8080/order**
 Atualiza o status de um pedido para entregue
 Body que deve ser passado:
 ```json
@@ -102,11 +104,13 @@ Retorno: "Ordem {orderID} entregue"
 OBS: Antes de iniciar, é necessário criar o .env com a estrutura demonstrada anteriormente no README.
 Cada microsserviço possui seu Dockerfile na raiz do projeto. Para criar as imagens, partindo da pasta `backend`, basta seguir o script a seguir:
 ```
+docker build -t {nome-desejado-barramento} ./barramento
 docker build -t {nome-desejado-mss-pedidos} ./mss-pedidos
 docker build -t {nome-desejado-mss-produtos} ./mss-produtos
 ```
 {nome-desejado-mss-pedidos} e {nome-desejado-mss-produtos} devem ser substituidos pelo nome desejado para as imagens.
 É possível verificar as imagens criadas usando `docker image ls`
 Com as imagens criadas, agora é possível subir os containeres com os comandos abaixo:
-`docker run -p 8080:8080 {nome-desejado-mss-produtos}`
-`docker run -p 8081:8081 {nome-desejado-mss-pedidos}`
+`docker run -p 8081:8081 {nome-desejado-mss-produtos}`
+`docker run -p 8082:8082 {nome-desejado-mss-pedidos}`
+`docker run -p 8080:8080 {nome-desejado-barramento}`
