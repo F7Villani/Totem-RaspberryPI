@@ -40,7 +40,10 @@ export default function Payment(props){
 
     return(
         <div className='home-background'
-            onClick={() => {backService.sendOrderToMongo(props.cart)}}>
+            onClick={() => {
+                backService.sendOrderToMongo(props.cart);
+                navigateToHome();
+            }}>
                 <div className="home-bar d-flex w-100 justify-content-center">               
                     <h1 className='home-title text-center'>PAGAMENTO</h1>
                 </div>

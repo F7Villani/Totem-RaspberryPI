@@ -27,7 +27,7 @@ export default function App(){
         
         //if item already exists
         if (existingItem) {
-            existingItem.quantity++ //update item
+            existingItem.quantity++; //update item
         } else { //if item doesn't exist, simply add it
             item.quantity = 1
             cartCopy.push(item)
@@ -38,7 +38,7 @@ export default function App(){
         
         //make cart a string and store in local space
         let stringCart = JSON.stringify(cartCopy);
-        localStorage.setItem("cart", stringCart)
+        localStorage.setItem("cart", stringCart);
     }
 
     const editItem = (itemID, amount) => {
@@ -67,18 +67,31 @@ export default function App(){
         localStorage.setItem('cart', cartString);
     }
 
-    const removeItem = (itemID) => {
+    const removeItem = (item) => {
         debugger
-        //create cartCopy
-        let cartCopy = [...cart]
+        //create a copy of our cart state, avoid overwritting existing state
+        let cartCopy = [...cart];
         
-        cartCopy = cartCopy.filter(item => item.ID != itemID);
+        //assuming we have an ID field in our item
+        let {id} = item;
         
-        //update state and local
-        setCart(cartCopy);
+        //look for item in cart array
+        let existingItem = cartCopy.find(cartItem => cartItem.id === id);
         
-        let cartString = JSON.stringify(cartCopy)
-        localStorage.setItem('cart', cartString)
+        //if item already exists
+        if (existingItem) {
+            existingItem.quantity--; //update item
+        } else { //if item doesn't exist, simply add it
+            item.quantity = 0
+            cartCopy.push(item)
+        }
+        
+        //update app state
+        setCart(cartCopy)
+        
+        //make cart a string and store in local space
+        let stringCart = JSON.stringify(cartCopy);
+        localStorage.setItem("cart", stringCart);
     }
 
     const emptyCart = () => {
@@ -102,11 +115,11 @@ export default function App(){
             <Route path="/review" element={<Review  cart={localCart}
                                                     addItemToCart={addItem}
                                                     editCartItem={editItem}
-                                                    removeItemFromCart={removeItem}
                                                     emptyCart={emptyCart}/>} />
 
             <Route path="/products" element={<Products  cart={localCart}
                                                         addItemToCart={addItem}
+                                                        removeItemFromCart={removeItem}
                                                         emptyCart={emptyCart} />} />
 
             <Route path="/category" element={<Category  emptyCart={emptyCart}/>} />

@@ -1,6 +1,7 @@
 import { Repository } from "../repository/repository.js";
+import { Order } from "../models/order.js";
 
-export class UCGetProducts{
+export class UCDeliverOrder{
     constructor(repository){
         if (!repository instanceof Repository){
             throw new Error(`Erro UCAddHelpOffer. Tipo errado para o parâmetro repository (${typeof(repository)})`)
@@ -8,7 +9,7 @@ export class UCGetProducts{
         this._repository = repository
     }
 
-    async getProducts(productType){
-        return await this._repository.getProducts(productType)
+    async deliverOrder(orderId){
+        return await this._repository.deliverOrder(orderId)
     }
 }
