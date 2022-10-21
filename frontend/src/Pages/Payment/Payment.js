@@ -8,25 +8,10 @@ export default function Payment(props){
 
     let [totalPrice, setTotalPrice] = useState();
 
-    const getOrderBodyFromCart = () => {
-        let cart = JSON.parse(props.cart)
-        let orderBody = {"productIdsList" : {},
-                         "totalPrice" : 0,
-                         "boolPaid" : true};
-        
-        cart.forEach((item) => {
-            orderBody.totalPrice += item.unitPrice * item.quantity;
-            orderBody.productIdsList[item.id] = item.quantity
-        });
-
-        console.log(orderBody);
-
-        return orderBody;
-    }
-
     useEffect(() => {
         //run after component mount
-        let orderBody = getOrderBodyFromCart()
+        //let orderBody = getOrderBodyFromCart()
+        let orderBody = props.cart.getOrderBody();
         setTotalPrice(parseFloat(orderBody.totalPrice).toFixed(2).replace('.', ','))
     },[])
 
@@ -41,7 +26,7 @@ export default function Payment(props){
     return(
         <div className='home-background'
             onClick={() => {
-                backService.sendOrderToMongo(props.cart);
+                backService.sendOrderToMongo();
                 navigateToHome();
             }}>
                 <div className="home-bar d-flex w-100 justify-content-center">               

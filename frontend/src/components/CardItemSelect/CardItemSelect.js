@@ -15,15 +15,15 @@ export class CardItemSelect extends Component {
         amount: this.props.amount
     }
 
-    backService = new BackendService()
+    backService = new BackendService();
 
     onPlusClick = async () => {
-        this.props.addItemToCart(await this.getItem());
+        this.props.cart.addItem(await this.getItem());
         console.log('Adicionando item do carrinho');
     }
 
     onMinusClick = async () => {   
-        this.props.removeItemFromCart(await this.getItem().id);   
+        this.props.cart.removeItem(await this.getItem());   
         console.log('Retirando item do carrinho');
     }
 

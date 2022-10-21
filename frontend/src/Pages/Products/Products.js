@@ -45,7 +45,7 @@ export default function Products(props){
     },[]) 
 
     const getQuantityItem = (id) => {
-        let cart = JSON.parse(props.cart);
+        let cart = props.cart.getCart();
         let quantityItem = 0;
         if(cart.length > 0){
             for (let i = 0; i < cart.length; i++) {
@@ -79,8 +79,7 @@ export default function Products(props){
                                 imageName={imageName} 
                                 category={category}
                                 itemId={item.id}
-                                addItemToCart={props.addItemToCart}
-                                removeItemFromCart={props.removeItemFromCart}
+                                cart={props.cart}
                             />
                         </div> 
                     )

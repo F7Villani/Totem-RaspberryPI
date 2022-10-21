@@ -1,25 +1,16 @@
 import axios from 'axios';
+import { Cart } from './Cart';
 
 export class BackendService {
 
     BASE_URL = 'http://localhost:8080';
 
-    getOrderBodyFromCart = (cartString) => {
-        let cart = JSON.parse(cartString)
-        let orderBody = {"productIdsList" : {},
-                         "totalPrice" : 0,
-                         "boolPaid" : true};
-        
-        cart.forEach((item) => {
-            orderBody.totalPrice += item.unitPrice * item.quantity;
-            orderBody.productIdsList[item.id] = item.quantity
-        });
+    cartService = new Cart();
 
-        return orderBody;
-    }
-
-    sendOrderToMongo = (cart) => {
-        axios.post(`${this.BASE_URL}/order`, this.getOrderBodyFromCart(cart)).then((res) => console.log(res))
+    sendOrderToMongo = () => {
+        axios.post(`${this.BASE_URL}/order`, this.cartService.getOrderBody()).then((res) => {
+            debugger
+            console.log(res.status)})
     }
 
     mapCategoryFrontToBack(category){
