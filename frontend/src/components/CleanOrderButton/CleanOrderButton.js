@@ -3,20 +3,17 @@ import './CleanOrderButton.css';
 
 import { Button } from 'primereact/button';
 import { Badge } from 'primereact/badge';
+import { Cart } from '../../services/Cart';
 
 export class CleanOrderButton extends Component {
-
-    constructor(props){
-        super(props);
-    }
 
     state = {
         cart: null
     }
 
     componentDidMount(){
-        let localCart = localStorage.getItem("cart")
-        this.setState({cart: JSON.parse(localCart)})
+        const cart = new Cart();
+        this.setState({cart: cart.getCart()});
     }
 
     getTotalQuantity(cart){

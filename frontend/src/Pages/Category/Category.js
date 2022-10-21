@@ -8,7 +8,7 @@ import CategoryButton from '../../components/CategoryButton/CategoryButton';
 
 import './Category.css';
 
-export default function Category(props){
+export default function Category(){
 
     const navigate = useNavigate();
 
@@ -57,7 +57,7 @@ export default function Category(props){
                 style={{height: '14vh', margin:'1px'}}>
                 <div className='d-flex justify-content-between align-items-center'>
                     <div className='d-flex col-6'>
-                        <CleanOrderButton emptyCart={props.emptyCart}/>
+                        <CleanOrderButton/>
                     </div>
                     <div className='d-flex col-6'>
                         <PayButton redirectFunction={navigateToReview}/>

@@ -30,7 +30,7 @@ export default function Review(props){
                 <div className="col-3"><h2>Total</h2></div>
             </div>       
             {
-                JSON.parse(props.cart).map((item, key) => (
+                props.cart.getCart().map((item, key) => (
                     <div className="row w-100 header-items align-items-start" key={key}>
                         <div className="col-4">{item.productName}</div>
                         <div className="col-3">{"R$ "+item.unitPrice}</div>

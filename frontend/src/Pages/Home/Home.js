@@ -4,15 +4,16 @@ import './Home.css';
 
 export default function Home(props){
 
+    useEffect(() => {
+        props.cart.cleanCart()
+    },[])
+
     const navigate = useNavigate();
 
     const navigateToItemCategory = () => {
         navigate('/category')
     };
 
-    useEffect(() => {
-        props.emptyCart()
-    }, [])
 
     return (
         <div className='home-background'
