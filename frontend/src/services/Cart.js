@@ -5,7 +5,7 @@ export class Cart{
     }
 
     getCart(){
-        return localStorage.getItem("cart");
+        return JSON.parse(localStorage.getItem("cart"));
     }
 
     cleanCart(){
@@ -13,8 +13,7 @@ export class Cart{
     }
 
     addItem(itemToAdd){ 
-        debugger
-        let cart = this.getCart();
+        let cart = new Cart().getCart();
         
         let existingItem = cart.find(cartItem => cartItem.id === itemToAdd.id);
         
@@ -36,9 +35,8 @@ export class Cart{
         localStorage.setItem("cart", stringCart);
     }
 
-    removeItem = (itemToRemove) => {
-        
-        let cart = this.getCart();
+    removeItem(itemToRemove){
+        let cart = new Cart().getCart();
         
         let existingItem = cart.find(cartItem => cartItem.id === itemToRemove.id);
         
@@ -46,7 +44,7 @@ export class Cart{
             cart.map((cartItem) => {
                 if(cartItem.id === itemToRemove.id)
                 {
-                    cartItem.quantity--;
+                    cartItem.quantity--;             
                 }
                 return cartItem;
             })
@@ -56,9 +54,27 @@ export class Cart{
                 return item.id !== itemToRemove.id;
             })
         }
-                
+
+        cart = cart.filter((itemCart) =>  {
+            return itemCart.quantity > 0;
+        });
+        
         let stringCart = JSON.stringify(cart);
         localStorage.setItem("cart", stringCart);
     }
 
+    getOrderBody(){
+        let cart = new Cart().getCart();
+        let orderBody = {"productIdsList" : {},
+                         "totalPrice" : 0,
+                         "boolPaid" : true,
+                         "boolDelivered": false};
+        
+        cart.forEach((item) => {
+            orderBody.totalPrice += item.unitPrice * item.quantity;
+            orderBody.productIdsList[item.id] = item.quantity
+        });
+        debugger
+        return orderBody;
+    }
 }
