@@ -74,7 +74,6 @@ export class Cart{
             orderBody.totalPrice += item.unitPrice * item.quantity;
             orderBody.productIdsList[item.id] = item.quantity
         });
-        debugger
         return orderBody;
     }
 }

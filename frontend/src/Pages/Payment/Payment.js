@@ -9,8 +9,6 @@ export default function Payment(props){
     let [totalPrice, setTotalPrice] = useState();
 
     useEffect(() => {
-        //run after component mount
-        //let orderBody = getOrderBodyFromCart()
         let orderBody = props.cart.getOrderBody();
         setTotalPrice(parseFloat(orderBody.totalPrice).toFixed(2).replace('.', ','))
     },[])
