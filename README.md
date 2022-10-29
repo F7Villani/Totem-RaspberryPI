@@ -84,7 +84,7 @@ Body que deve ser passado:
 {
     "productIdsList" : {"XXX": YY, "XXX": ZZ, "XXX": AA, "XXX": C}, YY/ZZ/AA/C representam quantidades (int), "XXX" representa ID do produto
     "totalPrice" : YY.YY,
-    "boolPaid" : true/false
+    "boolPaid" : true/false,
     "boolDelivered" : true/false
 }
 ```

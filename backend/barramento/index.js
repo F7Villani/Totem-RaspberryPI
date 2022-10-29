@@ -19,6 +19,7 @@ app.get('/products-resume', async (req, res) => {
 
 app.post('/order', async (req, res) => {
     let consulta = await axios.post('http://localhost:8082/order', req.body).catch((err) => console.log('Erro ao fazer POST na rota http://localhost:8082/order: ' + err))
+    let ubidots = await axios.get('http://localhost:1880/ubidots').then((res) => console.log('Ubidots atualizado')).catch((err) => console.log('Erro ao fazer GET na rota http://localhost:1880/ubidots: ' + err))
     res.send(consulta.data)
 })
 
