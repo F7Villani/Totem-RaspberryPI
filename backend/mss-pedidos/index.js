@@ -20,11 +20,17 @@ const uCDeliverOrder = new UCDeliverOrder(repo)
 const cPutOrder = new CPutOrder(uCDeliverOrder)
 
 app.post('/order', async (req, res) => {
-    res.sendStatus(201).send(await cPostOrder.postOrder(req.body))
+    res.sendStatus(201).send(await cPostOrder.postOrder(req.body).catch((err) => {
+        console.log('Erro ao fazer POST na rota http://localhost:8082/order: ' + err)
+        return {"message": "Erro ao fazer POST na rota http://localhost:8082/order: " + err.stack} //Retorna um JSON com a mensagem de erro
+    }))
 })
 
 app.put('/order', async (req, res) => {
-    res.sendStatus(200).send(await cPutOrder.putOrder(req.body))
+    res.sendStatus(200).send(await cPutOrder.putOrder(req.body).catch((err) => {
+        console.log('Erro ao fazer PUT na rota http://localhost:8082/order: ' + err)
+        return {"message": "Erro ao fazer PUT na rota http://localhost:8082/order: " + err.stack} //Retorna um JSON com a mensagem de erro
+    }))
 })
 
 app.listen(8082, () => {
