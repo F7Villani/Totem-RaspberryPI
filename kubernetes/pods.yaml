@@ -22,3 +22,9 @@ spec:
             limits:
               memory: 256Mi
               cpu: 1
+        - name: frontend
+          image: frontend:latest
+          resources:
+            limits:
+              memory: 256Mi
+              cpu: 1
