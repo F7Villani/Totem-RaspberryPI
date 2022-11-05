@@ -117,7 +117,20 @@ docker build -t {nome-desejado-mss-produtos} ./mss-produtos
 
 É possível verificar as imagens criadas usando `docker image ls`
 
-Com as imagens criadas, agora é possível subir os containeres com os comandos abaixo:
+Com as imagens criadas, agora é possível subir os contêineres com os comandos abaixo:
 `docker run -p 8081:8081 {nome-desejado-mss-produtos}`
 `docker run -p 8082:8082 {nome-desejado-mss-pedidos}`
 `docker run -p 8080:8080 {nome-desejado-barramento}`
+
+### Como criar contêiner para o frontend
+O frontend possui um Dockerfile localizado na pasta `frontend`. Para realizar o build basta usar o comando:
+`docker build -t {nome-conteiner-frontend} .`
+
+Com a imagem criada, basta executar o contêiner com o comando
+`docker run -p 3000:3000 {nome-conteiner-frontend}`
+
+### Usando o kubernetes para rodar os contêineres
+A partir da raiz do projeto:
+`cd kubernetes`
+`kubectl apply -f pods.yaml`
+`kubectl apply -f deployment.yaml`
