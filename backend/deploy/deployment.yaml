@@ -1,0 +1,35 @@
+#deployments vem de apps/v1
+apiVersion: apps/v1
+#tipo
+kind: Deployment
+metadata:
+  name: lembretes-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: barramento
+          image: barramento:latest
+          resources:
+            limits:
+              memory: 256Mi
+              cpu: 1
+        - name: mss-pedidos
+          image: mss-pedidos:latest
+          resources:
+            limits:
+              memory: 256Mi
+              cpu: 1
+        - name: mss-produtos
+          image: mss-produtos:latest
+          resources:
+            limits:
+              memory: 256Mi
+              cpu: 1
