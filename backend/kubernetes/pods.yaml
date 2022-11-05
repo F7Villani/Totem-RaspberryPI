@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: backend
+spec:
+  containers:
+    - name: barramento
+      image: barramento:latest
+      resources:
+        limits:
+          memory: 256Mi
+          cpu: 1
+    - name: mss-pedidos
+      image: mss-pedidos:latest
+      resources:
+        limits:
+          memory: 256Mi
+            cpu: 1
+        - name: mss-produtos
+          image: mss-produtos:latest
+          resources:
+            limits:
+              memory: 256Mi
+              cpu: 1
