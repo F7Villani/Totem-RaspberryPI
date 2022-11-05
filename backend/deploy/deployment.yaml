@@ -3,7 +3,7 @@ apiVersion: apps/v1
 #tipo
 kind: Deployment
 metadata:
-  name: lembretes-deployment
+  name: backend-deployment
 spec:
   replicas: 1
   selector:
