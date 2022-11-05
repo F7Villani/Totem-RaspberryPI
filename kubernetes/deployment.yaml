@@ -16,22 +16,31 @@ spec:
     spec:
       containers:
         - name: barramento
-          image: barramento:latest
+          image: barramento
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
           resources:
             limits:
               memory: 256Mi
         - name: mss-pedidos
-          image: mss-pedidos:latest
+          image: mss-pedidos
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8082
           resources:
             limits:
               memory: 256Mi
         - name: mss-produtos
-          image: mss-produtos:latest
+          image: mss-produtos
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081
           resources:
             limits:
               memory: 256Mi
         - name: frontend
-          image: frontend:latest
-          resources:
-            limits:
-              memory: 256Mi
+          image: frontend
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
