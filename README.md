@@ -128,3 +128,4 @@ Com a imagem criada, basta executar o contêiner com o comando
 A partir da raiz do projeto:
 `cd kubernetes`
 `kubectl apply -f pods.yaml`
+`kubectl apply -f deployment.yaml`

@@ -3,16 +3,16 @@ apiVersion: apps/v1
 #tipo
 kind: Deployment
 metadata:
-  name: backend-deployment
+  name: aplicacao-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: aplicacao
   template:
     metadata:
       labels:
-        app: backend
+        app: aplicacao
     spec:
       containers:
         - name: barramento
@@ -20,22 +20,18 @@ spec:
           resources:
             limits:
               memory: 256Mi
-              cpu: 1
         - name: mss-pedidos
           image: mss-pedidos:latest
           resources:
             limits:
               memory: 256Mi
-              cpu: 1
         - name: mss-produtos
           image: mss-produtos:latest
           resources:
             limits:
               memory: 256Mi
-              cpu: 1
         - name: frontend
           image: frontend:latest
           resources:
             limits:
               memory: 256Mi
-              cpu: 1
