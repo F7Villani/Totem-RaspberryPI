@@ -1,0 +1,46 @@
+#deployments vem de apps/v1
+apiVersion: apps/v1
+#tipo
+kind: Deployment
+metadata:
+  name: aplicacao-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aplicacao
+  template:
+    metadata:
+      labels:
+        app: aplicacao
+    spec:
+      containers:
+        - name: barramento
+          image: barramento
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              memory: 256Mi
+        - name: mss-pedidos
+          image: mss-pedidos
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8082
+          resources:
+            limits:
+              memory: 256Mi
+        - name: mss-produtos
+          image: mss-produtos
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081
+          resources:
+            limits:
+              memory: 256Mi
+        - name: frontend
+          image: frontend
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000

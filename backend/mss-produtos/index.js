@@ -21,11 +21,17 @@ const uCGetProducts = new UCGetProducts(repo)
 const cGetProducts = new CGetProducts(uCGetProducts)
 
 app.get('/products', async (req, res) => {
-    res.send(await cGetProducts.getProducts(req.query))
+    res.send(await cGetProducts.getProducts(req.query).catch((err) => {
+        console.log('Erro ao fazer GET na rota http://localhost:8081/products?category=' + req.query.category + ': ' + err.stack)
+        return {"message": "Erro ao fazer GET na rota http://localhost:8081/products?category=" + req.query.category + ": " + err.stack} //Retorna um JSON com a mensagem de erro
+    }))
 })
 
 app.get('/products-resume', async (req, res) => {
-    res.send(await cGetProductsForResume.getProductsForResume(req.query))
+    res.send(await cGetProductsForResume.getProductsForResume(req.query).catch((err) => {
+        console.log('Erro ao fazer GET na rota http://localhost:8081/products-resume' + req.query.category + ': ' + err.stack)
+        return {"message": "Erro ao fazer GET na rota http://localhost:8081/products-resume" + req.query.category + ": " + err.stack} //Retorna um JSON com a mensagem de erro
+    }))
 })
 
 app.listen(8081, () => {

@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: aplicacao-service
+spec:
+  type: NodePort
+
+  # A porta do serviço
+  ports:
+    - name: barramento
+      port: 10080
+      targetPort: 8080
+      nodePort: 30080
+    - name: mss-pedidos
+      port: 10082
+      targetPort: 8082
+      nodePort: 30082
+    - name: mss-produtos
+      port: 10081
+      targetPort: 8081
+      nodePort: 30081
+    - name: frontend
+      port: 10000
+      targetPort: 3000
+      nodePort: 30000
