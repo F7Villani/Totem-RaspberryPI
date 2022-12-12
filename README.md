@@ -2,6 +2,9 @@
 
 **Sobre o Projeto:**
 Um totem de fast food que permite o usuário montar seu pedido e pagá-lo. Ao realizar o pagamento o totem também emite uma notificação para a cozinha enviando detalhes os detalhes do pedido. Tudo numa interface bonita e intuitiva para o usuário.
+
+[Vídeo apresentação do projeto](https://www.youtube.com/watch?v=b-Utnc-vbe8&ab_channel=FelipeVillani)
+
 #
 **Tecnologias Utilizadas:**
 - node.js
